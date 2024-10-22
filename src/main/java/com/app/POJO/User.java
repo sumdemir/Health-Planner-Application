@@ -19,32 +19,25 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
-    @Column(name = "name")
     private String name;
 
-    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "email", unique = true) // E-posta benzersiz olmalı
     private String email;
 
-    @Column(name = "phone_number") // Alan adı veritabanında alt çizgi ile
     private String phoneNumber;
 
-    @Column(name = "password")
     private String password;
 
+    private String status;
+
     @Enumerated(EnumType.STRING)
-    @Column(name = "role") // Kullanıcı rolü
     private UserRole role;
 
-    @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "updated_at") // İsimlendirme düzeltildi
     private LocalDateTime updatedAt;
 
     @PrePersist
@@ -57,3 +50,4 @@ public class User implements Serializable {
         updatedAt = LocalDateTime.now();
     }
 }
+
