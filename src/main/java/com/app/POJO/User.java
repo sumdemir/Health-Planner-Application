@@ -8,6 +8,8 @@ import org.hibernate.annotations.DynamicUpdate;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+@NamedQuery(name = "User.findByEmailId" , query = "select u from User u where u.email=:email")
+
 @Data
 @Entity
 @DynamicUpdate
@@ -33,8 +35,7 @@ public class User implements Serializable {
 
     private String status;
 
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private String role;
 
     private LocalDateTime createdAt;
 
